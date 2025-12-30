@@ -1,0 +1,44 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type LocalizationType {
+  name: String!
+  description: String
+}
+
+type ParentDepartmentType {
+  id: ID!
+  name: String!
+}
+
+type DepartmentType {
+  id: ID!
+  name: String!
+  employees: Int!
+  description: String
+  localization: LocalizationType
+  code: Float
+  manager: String
+  location: String
+  employeesNumber: Int
+  status: Boolean
+  parentDepartment: ParentDepartmentType
+  createdAt: String
+}
+
+type Query {
+  departments: [DepartmentType!]!
+  department(id: ID!): DepartmentType
+}
+
+type Mutation {
+  createDepartment(data: DepartmentInput!): DepartmentType!
+  updateDepartment(id: ID!, data: DepartmentInput!): DepartmentType
+  deleteDepartment(id: ID!): Boolean!
+}
+
+input DepartmentInput {
+  name: String!
+  employees: Int!
+}
